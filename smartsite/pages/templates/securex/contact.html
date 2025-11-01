@@ -1,0 +1,27 @@
+{% extends "securex/base.html" %}
+{% block title %}Contact • Smart Solution Group{% endblock %}
+{% block content %}
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h1 class="mb-4">Contact Us</h1>
+        <p class="mb-4">Na shkruaj për pyetje ose preventiv.</p>
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-md-6">{{ form.name.label_tag }} {{ form.name }}</div>
+          <div class="col-md-6">{{ form.email.label_tag }} {{ form.email }}</div>
+          <div class="col-md-6">{{ form.phone.label_tag }} {{ form.phone }}</div>
+          <div class="col-md-6">{{ form.subject.label_tag }} {{ form.subject }}</div>
+          <div class="col-12">{{ form.message.label_tag }} {{ form.message }}</div>
+          <div class="col-12"><button class="btn btn-primary py-3 px-4">Send Message</button></div>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <iframe class="w-100 rounded" style="height: 380px; border:0;"
+                src="https://maps.google.com/maps?q=Tirana&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

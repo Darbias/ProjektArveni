@@ -1,0 +1,35 @@
+{% extends "securex/base.html" %}
+{% block title %}Projects • Smart Solution Group{% endblock %}
+{% block content %}
+
+<div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(135deg,#0b2239,#133b5c)">
+  <div class="container py-5">
+    <h1 class="display-4 text-white mb-3">Projects</h1>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-4">
+      {% for p in projects %}
+      <div class="col-lg-4 col-md-6">
+        <div class="portfolio-item">
+          <div class="position-relative overflow-hidden">
+            {% if p.cover %}<img class="img-fluid" src="{{ p.cover.url }}" alt="{{ p.title }}">{% endif %}
+            <div class="portfolio-overlay">
+              <a class="btn btn-square btn-outline-light mx-1" href="{% url 'project_detail' slug=p.slug %}"><i class="bi bi-link-45deg"></i></a>
+            </div>
+          </div>
+          <div class="bg-light p-4">
+            <p class="text-primary fw-medium mb-2">{{ p.service }}</p>
+            <h5 class="lh-base mb-0">{{ p.title }}</h5>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p>Nuk ka projekte ende.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

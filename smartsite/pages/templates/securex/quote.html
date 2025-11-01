@@ -1,0 +1,27 @@
+{% extends "securex/base.html" %}
+{% load static %}
+{% block title %}Free Quote • Smart Solution Group{% endblock %}
+{% block content %}
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h1 class="mb-4">Get A Free Quote</h1>
+        <p class="mb-4">Përshkruaj shkurt nevojën – do të të kontaktojmë.</p>
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-md-6">{{ form.name.label_tag }} {{ form.name }}</div>
+          <div class="col-md-6">{{ form.email.label_tag }} {{ form.email }}</div>
+          <div class="col-md-6">{{ form.phone.label_tag }} {{ form.phone }}</div>
+          <div class="col-md-6">{{ form.service.label_tag }} {{ form.service }}</div>
+          <div class="col-12">{{ form.message.label_tag }} {{ form.message }}</div>
+          <div class="col-12"><button class="btn btn-primary py-3 px-4">Request Quote</button></div>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'securex/img/quote.jpg' %}" class="img-fluid rounded" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

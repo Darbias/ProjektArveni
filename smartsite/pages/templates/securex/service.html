@@ -1,0 +1,55 @@
+{% extends "securex/base.html" %}
+{% load static %}
+{% block title %}Services • Smart Solution Group{% endblock %}
+{% block content %}
+
+<!-- HEADER (Hero i faqes) -->
+<div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(135deg,#0b2239,#133b5c)">
+  <div class="container py-5">
+    <h1 class="display-4 text-white mb-3">Our Services</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb text-uppercase">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- SERVICES NGA DB -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+      <h1 class="mb-3">Siguri & Automatizim për çdo hapësirë</h1>
+      <p>Ekspertizë në instalime profesionale për shtëpi, zyra dhe biznese.</p>
+    </div>
+
+    <div class="row g-4">
+      {% for s in services %}
+      <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-light rounded h-100 p-5 shadow-sm border-0">
+          <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
+               style="width:70px;height:70px;">
+            {% if s.icon_class %}
+              <i class="{{ s.icon_class }} fs-4 text-primary"></i>
+            {% else %}
+              <img class="img-fluid" src="{% static 'securex/img/icon/icon-1.png' %}" alt="icon">
+            {% endif %}
+          </div>
+          <h4 class="mb-3">{{ s.name }}</h4>
+          <p class="mb-4">{{ s.long_description|default:s.short_description }}</p>
+          <a class="btn btn-outline-primary px-3" href="{% url 'projects' %}?service={{ s.slug }}">
+            Shiko projekte <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center">
+        <p class="text-muted">Nuk ka shërbime të regjistruara. Shto disa nga admin.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

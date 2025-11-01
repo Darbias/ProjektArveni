@@ -1,0 +1,31 @@
+{% extends "securex/base.html" %}
+{% load static %}
+{% block title %}About • Smart Solution Group{% endblock %}
+{% block content %}
+
+<div class="container-fluid page-header py-5 mb-5" style="background:linear-gradient(135deg,#0b2239,#133b5c)">
+  <div class="container py-5">
+    <h1 class="display-4 text-white mb-3">About Us</h1>
+  </div>
+</div>
+
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="mb-3">Zgjidhje sigurie & automatizimi për shtëpi dhe biznese</h2>
+        <p class="mb-4">Instalim profesional CCTV, sisteme alarmi, kontroll aksesi dhe Smart Home. Projektim, konfigurim dhe mirëmbajtje nga ekip i certifikuar.</p>
+        <div class="row g-4">
+          <div class="col-sm-4"><h3 class="mb-0">{{ service_count }}</h3><small>Shërbime</small></div>
+          <div class="col-sm-4"><h3 class="mb-0">{{ project_count }}</h3><small>Projekte</small></div>
+          <div class="col-sm-4"><h3 class="mb-0">{{ partner_count }}</h3><small>Partnerë</small></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img class="img-fluid rounded" src="{% static 'securex/img/about.jpg' %}" alt="About us">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
