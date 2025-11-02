@@ -20,4 +20,8 @@ urlpatterns = [
 
     # robots.txt për SEO / Google
     path("robots.txt", v.robots_txt, name="robots_txt"),
+    path("team/", v.team, name="team"),
+path("testimonials/", v.testimonials_page, name="testimonials_page"),
+path("page-404/", v.page_404_demo, name="page_404_demo"),
+
 ]

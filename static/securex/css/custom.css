@@ -1,0 +1,271 @@
+/* === FEATURE CARDS (dark) === */
+.feature-dark {
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease;
+}
+.feature-dark:hover { transform: translateY(-6px); }
+.feature-dark .fi {
+  font-size: 46px;
+  color: #5ec243;
+  margin-right: 14px;
+}
+.feature-dark h4 {
+  color: #fff;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.feature-dark p {
+  color: #bbb;
+  margin: 0;
+}
+.feature-dark .idx {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-weight: 800;
+  font-size: 56px;
+  color: #181818;
+  line-height: 1;
+  user-select: none;
+}
+
+/* === WHY CHOOSE ITEMS === */
+.why-item {
+  background: #f6f7f9;
+  border-radius: 12px;
+  padding: 22px;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  transition: all .25s ease;
+}
+.why-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.why-item .bi {
+  font-size: 34px;
+  color: #48b044;
+}
+
+/* === HERO / CAROUSEL LAYERING & LAYOUT === */
+.header-carousel {
+  position: relative;
+  z-index: 30; /* mbi çdo gjë tjetër të rastësishme */
+}
+.hero-caption,
+.hero-caption .btn {
+  position: relative;
+  z-index: 31;
+}
+
+.header-carousel .owl-stage {
+  display: flex;
+}
+.header-carousel .owl-item {
+  position: relative;
+  min-height: 80vh;
+}
+.header-carousel .position-relative {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+.header-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8%;
+  padding-right: 8%;
+  background: rgba(0,0,0,0.35);
+}
+.hero-caption .inner {
+  max-width: 720px;
+  color: #fff;
+}
+.hero-caption h1 {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.hero-caption p {
+  font-size: 18px;
+  color: #eee;
+  margin-bottom: 24px;
+}
+.hero-btns .btn {
+  margin-right: 10px;
+}
+
+/* nav/dots në carousel të klikueshme realisht */
+.header-carousel .owl-nav,
+.header-carousel .owl-dots {
+  position: relative;
+  z-index: 32;
+  pointer-events: auto;
+}
+
+/* === PROJECT CARDS / CLICK FIX === */
+.projects-grid [class*="col"],
+.project-card {
+  position: relative; /* i duhet stretched-link */
+}
+
+.project-card {
+  z-index: 1;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease;
+}
+.project-card:hover { transform: translateY(-6px); }
+
+.project-card .imgwrap {
+  position: relative;
+  z-index: 1;
+}
+.project-card .imgwrap img {
+  width: 100%;
+  display: block;
+}
+
+/* overlay i kartës mos haj klikime kur s’duhet */
+.project-card .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 2;
+}
+.project-card:hover .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.project-card .overlay a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* kufizo zonën e klikimit të stretched-link brenda kartës */
+.stretched-link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+/* === QUOTE BOX === */
+.home-quote {
+  background: #f5f9f3;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+/* === TESTIMONIALS === */
+.testi-quote {
+  background: #f7f7f9;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+  transition: transform .25s ease;
+}
+.testi-quote:hover {
+  transform: translateY(-5px);
+}
+
+/* avatar fix kur përdoret owl-carousel */
+.owl-carousel .owl-item img.testi-avatar {
+  width: 66px !important;
+  height: 66px !important;
+  display: inline-block !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* === HERO carousel nav & dots reposition fix === */
+
+/* Shigjetat e navigimit (majtas/djathtas) */
+.header-carousel .owl-nav {
+  position: absolute !important;
+  bottom: 40px;          /* ngri pak më sipër */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 120;          /* më lart se çdo gjë tjetër */
+}
+
+/* butonat majtas/djathtas */
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 45px;
+  font-size: 22px;
+  transition: .4s;
+}
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Dots (ato rrethoret poshtë) */
+.header-carousel .owl-dots {
+  position: absolute !important;
+  bottom: 18px;          /* ngritur për t’u dukur brenda imazhit */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
+}
+
+/* Dots vetë */
+.header-carousel .owl-dot {
+  margin: 0 4px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  background: transparent;
+  transition: .3s;
+}
+.header-carousel .owl-dot.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}

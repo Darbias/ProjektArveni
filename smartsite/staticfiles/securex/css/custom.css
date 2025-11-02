@@ -1,0 +1,118 @@
+/* --- Feature cards dark (si në demo majtas) --- */
+.feature-dark {
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease;
+}
+.feature-dark:hover {
+  transform: translateY(-6px);
+}
+.feature-dark .fi {
+  font-size: 46px;
+  color: #5ec243;
+  margin-right: 14px;
+}
+.feature-dark h4 {
+  color: #fff;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.feature-dark p {
+  color: #bbb;
+  margin: 0;
+}
+.feature-dark .idx {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  font-weight: 800;
+  font-size: 56px;
+  color: #181818;
+  line-height: 1;
+  user-select: none;
+}
+
+/* --- Why choose items --- */
+.why-item {
+  background: #f6f7f9;
+  border-radius: 12px;
+  padding: 22px;
+  height: 100%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  transition: all .25s ease;
+}
+.why-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.why-item .bi {
+  font-size: 34px;
+  color: #48b044;
+}
+
+/* --- Projects card click overlay (mimikon demo) --- */
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  transition: transform .25s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+}
+.project-card .imgwrap {
+  position: relative;
+}
+.project-card .imgwrap img {
+  width: 100%;
+  display: block;
+}
+.project-card .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  background: rgba(0,0,0,.35);
+  transition: opacity .25s ease;
+}
+.project-card:hover .overlay {
+  opacity: 1;
+}
+.project-card .overlay a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* --- Quote section on home --- */
+.home-quote {
+  background: #f5f9f3;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+
+/* --- Testimonials box --- */
+.testi-quote {
+  background: #f7f7f9;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.05);
+  transition: transform .25s ease;
+}
+.testi-quote:hover {
+  transform: translateY(-5px);
+}

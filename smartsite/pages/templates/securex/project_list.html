@@ -1,35 +1,58 @@
 {% extends "securex/base.html" %}
+{% load static %}
 {% block title %}Projects • Smart Solution Group{% endblock %}
 {% block content %}
 
+<!-- ========================== -->
+<!-- HERO HEADER -->
 <div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(135deg,#0b2239,#133b5c)">
-  <div class="container py-5">
+  <div class="container py-5 text-center">
     <h1 class="display-4 text-white mb-3">Projects</h1>
+    <p class="lead text-white-50 mb-0">Disa nga instalimet tona të fundit dhe zgjidhjet profesionale të sigurisë.</p>
   </div>
 </div>
 
+<!-- ========================== -->
+<!-- PROJECTS GRID -->
 <div class="container-xxl py-5">
   <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+      <h2 class="mb-3">Our Latest Projects</h2>
+      <p class="text-muted">Kliko mbi një projekt për të parë më shumë detaje ose galerinë e fotove.</p>
+    </div>
+
     <div class="row g-4">
       {% for p in projects %}
       <div class="col-lg-4 col-md-6">
-        <div class="portfolio-item">
-          <div class="position-relative overflow-hidden">
-            {% if p.cover %}<img class="img-fluid" src="{{ p.cover.url }}" alt="{{ p.title }}">{% endif %}
-            <div class="portfolio-overlay">
-              <a class="btn btn-square btn-outline-light mx-1" href="{% url 'project_detail' slug=p.slug %}"><i class="bi bi-link-45deg"></i></a>
+        <div class="project-card h-100">
+          <div class="imgwrap">
+            {% if p.cover %}
+              <img src="{{ p.cover.url }}" alt="{{ p.title }}">
+            {% else %}
+              <img src="{% static 'securex/img/placeholder.jpg' %}" alt="{{ p.title }}">
+            {% endif %}
+            <div class="overlay">
+              <a href="{% url 'project_detail' slug=p.slug %}"><i class="bi bi-link-45deg"></i></a>
+              {% if p.cover %}
+              <a href="{{ p.cover.url }}" data-lightbox="p{{ p.id }}"><i class="bi bi-eye"></i></a>
+              {% endif %}
             </div>
           </div>
-          <div class="bg-light p-4">
-            <p class="text-primary fw-medium mb-2">{{ p.service }}</p>
-            <h5 class="lh-base mb-0">{{ p.title }}</h5>
+          <div class="p-4">
+            <p class="text-success fw-medium mb-2">{{ p.service }}</p>
+            <h5 class="mb-0">
+              <a href="{% url 'project_detail' slug=p.slug %}" class="stretched-link text-dark text-decoration-none">
+                {{ p.title }}
+              </a>
+            </h5>
           </div>
         </div>
       </div>
       {% empty %}
-      <p>Nuk ka projekte ende.</p>
+      <p class="text-center">Nuk ka projekte ende.</p>
       {% endfor %}
     </div>
   </div>
 </div>
+
 {% endblock %}

@@ -1,28 +1,88 @@
 {% extends "securex/base.html" %}
 {% load static %}
-{% block title %}About • Smart Solution Group{% endblock %}
+{% block title %}About Us • Smart Solution Group{% endblock %}
 {% block content %}
 
-<div class="container-fluid page-header py-5 mb-5" style="background:linear-gradient(135deg,#0b2239,#133b5c)">
-  <div class="container py-5">
+<!-- ========================== -->
+<!-- HERO HEADER -->
+<div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(135deg,#0b2239,#133b5c)">
+  <div class="container py-5 text-center">
     <h1 class="display-4 text-white mb-3">About Us</h1>
+    <p class="lead text-white-50 mb-0">Siguri • Cilësi • Besueshmëri</p>
   </div>
 </div>
 
+<!-- ========================== -->
+<!-- ABOUT MAIN CONTENT -->
 <div class="container-xxl py-5">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6">
-        <h2 class="mb-3">Zgjidhje sigurie & automatizimi për shtëpi dhe biznese</h2>
-        <p class="mb-4">Instalim profesional CCTV, sisteme alarmi, kontroll aksesi dhe Smart Home. Projektim, konfigurim dhe mirëmbajtje nga ekip i certifikuar.</p>
-        <div class="row g-4">
-          <div class="col-sm-4"><h3 class="mb-0">{{ service_count }}</h3><small>Shërbime</small></div>
-          <div class="col-sm-4"><h3 class="mb-0">{{ project_count }}</h3><small>Projekte</small></div>
-          <div class="col-sm-4"><h3 class="mb-0">{{ partner_count }}</h3><small>Partnerë</small></div>
-        </div>
+        <img class="img-fluid rounded shadow-sm" src="{% static 'securex/img/about.jpg' %}" alt="About Smart Solution Group">
       </div>
       <div class="col-lg-6">
-        <img class="img-fluid rounded" src="{% static 'securex/img/about.jpg' %}" alt="About us">
+        <h2 class="mb-3">Zgjidhje sigurie & automatizimi për shtëpi dhe biznese</h2>
+        <p class="mb-4">
+          Ne ofrojmë zgjidhje profesionale në instalimin e sistemeve CCTV, alarmit, kontrollit të aksesit
+          dhe Smart Home. Ekipi ynë i certifikuar garanton projektim, konfigurim dhe mirëmbajtje
+          sipas standardeve më të larta të sigurisë.
+        </p>
+        <div class="row g-4 text-center">
+          <div class="col-sm-4">
+            <h3 class="text-primary mb-0">{{ service_count }}</h3>
+            <small class="text-muted">Shërbime</small>
+          </div>
+          <div class="col-sm-4">
+            <h3 class="text-primary mb-0">{{ project_count }}</h3>
+            <small class="text-muted">Projekte</small>
+          </div>
+          <div class="col-sm-4">
+            <h3 class="text-primary mb-0">{{ partner_count }}</h3>
+            <small class="text-muted">Partnerë</small>
+          </div>
+        </div>
+        <a href="{% url 'contact' %}" class="btn btn-primary mt-4 py-3 px-4">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================== -->
+<!-- OUR VALUES -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width:600px;">
+      <h2 class="mb-3">Our Values</h2>
+      <p class="text-muted">Çdo projekt udhëhiqet nga parimet e besueshmërisë, inovacionit dhe përkushtimit ndaj klientit.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="why-item text-center">
+          <i class="bi bi-shield-check"></i>
+          <h5 class="mt-3 mb-2">Reliability</h5>
+          <p class="mb-0">Sisteme të sigurta që funksionojnë pa ndërprerje në çdo kusht.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-item text-center">
+          <i class="bi bi-lightbulb"></i>
+          <h5 class="mt-3 mb-2">Innovation</h5>
+          <p class="mb-0">Zgjidhje moderne të bazuara në teknologjitë më të fundit Smart & IoT.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-item text-center">
+          <i class="bi bi-people"></i>
+          <h5 class="mt-3 mb-2">Teamwork</h5>
+          <p class="mb-0">Ekip i bashkuar dhe i certifikuar që garanton sukses në çdo projekt.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="why-item text-center">
+          <i class="bi bi-heart-pulse"></i>
+          <h5 class="mt-3 mb-2">Commitment</h5>
+          <p class="mb-0">Besnikëri dhe përkushtim maksimal për çdo klient e çdo detaj.</p>
+        </div>
       </div>
     </div>
   </div>

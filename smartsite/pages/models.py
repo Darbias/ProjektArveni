@@ -4,6 +4,10 @@ from django.utils import timezone
 
 
 class Service(models.Model):
+    icon = models.CharField(
+        max_length=50, blank=True,
+        help_text="Bootstrap Icon p.sh. 'bi-camera-video' ose 'bi-fingerprint'"
+    )
     name = models.CharField(max_length=120, unique=True)
     slug = models.SlugField(max_length=140, unique=True, blank=True)
     icon_class = models.CharField(max_length=80, blank=True, help_text="p.sh. 'bi bi-camera-video'")
@@ -11,6 +15,7 @@ class Service(models.Model):
     long_description = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=timezone.now)  # ✅ shtuar për uniformitet
+    
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -19,6 +24,8 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+    
+
 
 
 class Project(models.Model):
@@ -54,6 +61,7 @@ class Partner(models.Model):
 
 
 class Testimonial(models.Model):
+    photo = models.ImageField(upload_to="testimonials/", blank=True, null=True)
     author_name = models.CharField(max_length=120)
     author_role = models.CharField(max_length=120, blank=True)
     rating = models.PositiveSmallIntegerField(default=5)
